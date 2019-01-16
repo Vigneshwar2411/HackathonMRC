@@ -25,6 +25,8 @@ var httpsOptions = {
     }
 };
 
+const options = new URL('https://api-preprod.mrcooper.com/nsm/preprod/api/v1/customers/100540019/loans/596852278/profile?emailCascade=none');
+
 const postData = JSON.stringify({
 "communications": [
             {
@@ -58,7 +60,7 @@ app.post('/sendOneWayMessage', function(req, res) {
 
 app.post('/updateEmail', function(req, res) {
   console.log('update email......call through webhook');
-  var httpsRequest = https.request(httpsOptions, (httpsResponse) => {
+  var httpsRequest = https.request(options, (httpsResponse) => {
     console.log('httpsResponse code',httpsResponse.statusCode);
     httpsResponse.on('data', (d) => {
       console.log('httpsResponse response',d);
