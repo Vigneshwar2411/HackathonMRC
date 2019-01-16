@@ -116,6 +116,6 @@ app.post('/interactive', function(req,res) {
 
 })
 
-app.listen(3080, function () {
+app.listen(process.env.PORT || 3080, function () {
   console.log('Example app listening on port 3080!');
 });
